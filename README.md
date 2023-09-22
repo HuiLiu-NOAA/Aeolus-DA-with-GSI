@@ -6,7 +6,7 @@ Specifically, The observation error specified to the Aeolus winds are derived us
 
 Contributors: Hui Liu, Ross N. Hoffman, Kayo Ide, Kevin Garrett, Katherine Lukens
 
-Archive locations: 
+Archive locations:    
 
 HPSS:  /NCEPDEV/nesdis-drt/5year/Hui.Liu/HERA/scratch/globalaeo19r_onlineBC_archive20230911.tar,  
 
@@ -17,22 +17,22 @@ https://github.com/HuiLiu-NOAA/Aeolus-DA-with-GSI
 
 Aeolus related codes and data:
 
-read_lidar.f90: 
+read_lidar.f90:   
   read in Aeolus winds.
 
 setupdw.f90:  
   process QCs of Aeolus winds and calculate OmB of Aeolus winds.
 
-TLSonlineBC/: 
+TLSonlineBC/:   
   a small code and script to do the additional TLS bias correction
 
-DATA_TLS_BC/: 
+DATA_TLS_BC/:   
   Aeolus bias correction coefficients used in the TLS bias correction
 
-exglobal_analysis_fv3gfs.sh.ecf: 
+exglobal_analysis_fv3gfs.sh.ecf:   
   main GSI analysis script modified to read Aeolus data and call the TLS bias correction
 
-setup2021b.csh: 
+setup2021b.csh:   
   the script to submit Aeolus OSE.
 
 
