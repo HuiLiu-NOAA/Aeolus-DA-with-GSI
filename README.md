@@ -1,8 +1,9 @@
-Brief description of the codes with Aeolus DA in NOAA/NCEP Global_workflow v15.3:
+Description of the GSI codes with Aeolus winds in NOAA/NCEP Global_workflow v15.3:
 
-These Aeolus DA codes are based on the original codes developed by Will Mccarty at NASA. The codes are modifdied to accormodate ESA Aeolus space-lidar winds in the NOAA GSI system. 
+The Aeolus DA codes are based on the original codes developed by Will Mccarty at NASA. The codes are modifdied to accormodate ESA Aeolus space-lidar winds in the NOAA GSI system. 
 
-Specifically, the Aeolus winds are assimilted as wind observations as radiosonde winds with only one component, i.e., along the Horizontal-Line-Of-Sight (HLOS). The observation error estimated for the Aeolus winds for use in GSI are derived using the OmB and the Hollingsworth and Lonnberg method. The Aeolus winds are assimilated at height level. The Mie winds are thinned (not superobed) to 90km resolution in setupdw.f90. An additional Total-Least-Squres (TLS) bias correction is developed and applied to the Aeolus innovations to remove impact of the biases in either the FV3GFS background or Aeolus winds. The TLS bias corrections are calculated based on the Aeolus winds over previous 24 hours, which is set in tls_bc.f90. 
+Specifically, the Aeolus winds are assimilted as wind observations, similar to radiosonde winds, with only one component, i.e., along the Horizontal-Line-Of-Sight (HLOS). The observation error estimated for the Aeolus winds for use in GSI are derived using the OmB of a control run monitoring the Aeolus winds. The Hollingsworth and Lonnberg method is used. The Aeolus winds are assimilated at height level. The Mie winds are thinned (not superobed) to 90km resolution. An additional Total-Least-Squres (TLS) bias correction is developed and applied to the Aeolus innovations to remove impact of the biases in either the FV3GFS background or Aeolus winds. All of the above are in setupdw.f90.
+The TLS bias corrections are calculated based on the Aeolus winds over previous 24 hours, which is set in tls_bc.f90. 
  
 
 Contributors: Hui Liu, Ross N. Hoffman, Kayo Ide, Kevin Garrett, Katherine Lukens
@@ -23,7 +24,7 @@ setupdw.f90:
   process QCs of Aeolus winds, thinning of Mie winds, and calculate OmB of Aeolus winds.
 
  tls_bc.f90 (in TLSonlineBC.tar):   
-  a small code to calculate the additional TLS bias correction over the previous 24-hours.
+  a small code to calculate the additional TLS bias correction using the Aeolus diagnostic outputs of diag*.* over the previous 24-hours or 4 DA cycles.
 
 DATA_TLS_BC.tar:   
   Aeolus TLS bias correction coefficients used in the TLS bias correction applied to the OmB in setupdw.f90. 
@@ -32,7 +33,7 @@ exglobal_analysis_fv3gfs.sh.ecf:
   main GSI analysis script modified to read Aeolus data and call the TLS bias correction.
 
 setup2021b.csh:   
-  the script to submit Aeolus OSE.
+  the little script to submit Aeolus OSE.
 
 
 ----- References and how to cite these codes ----
